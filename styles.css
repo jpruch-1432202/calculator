@@ -153,4 +153,41 @@ button:hover {
 canvas {
     width: 100% !important;
     height: 300px !important;
+}
+
+.helper-text {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--label-color);
+    margin-top: 0.25rem;
+    font-style: italic;
+}
+
+.input-with-suffix {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-suffix input {
+    padding-right: 1.5rem;
+    width: 80px;
+}
+
+.suffix {
+    position: absolute;
+    left: 65px;
+    color: var(--label-color);
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
 } 
