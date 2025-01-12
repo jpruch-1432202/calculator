@@ -142,4 +142,15 @@ button:hover {
     .calculator-card {
         padding: 1.5rem;
     }
+}
+
+.chart-container {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: var(--card-background);
+}
+
+canvas {
+    width: 100% !important;
+    height: 300px !important;
 } 

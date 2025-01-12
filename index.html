@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investment Calculator</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -49,6 +50,9 @@
                 <div class="result-item">
                     <div class="result-label">Total Earnings</div>
                     <div class="result-value" id="totalEarnings"></div>
+                </div>
+                <div class="result-item chart-container">
+                    <canvas id="investmentChart"></canvas>
                 </div>
             </div>
         </div>
