@@ -3,6 +3,8 @@ document.getElementById('investmentForm').addEventListener('submit', function(e)
     
     // Get input values
     const initialAmount = parseFloat(document.getElementById('initialAmount').value);
+    const year2LumpSum = parseFloat(document.getElementById('year2LumpSum').value) || 0;
+    const year3LumpSum = parseFloat(document.getElementById('year3LumpSum').value) || 0;
     const monthlyContribution = parseFloat(document.getElementById('monthlyContribution').value);
     const annualReturn = parseFloat(document.getElementById('annualReturn').value);
     const years = parseInt(document.getElementById('years').value);
@@ -28,6 +30,16 @@ document.getElementById('investmentForm').addEventListener('submit', function(e)
 
     // Calculate for each year
     for (let year = 0; year < years; year++) {
+        // Add lump sums at the start of years 2 and 3
+        if (year === 1) { // Start of year 2
+            totalAmount += year2LumpSum;
+            totalContributions += year2LumpSum;
+        }
+        if (year === 2) { // Start of year 3
+            totalAmount += year3LumpSum;
+            totalContributions += year3LumpSum;
+        }
+
         for (let month = 0; month < 12; month++) {
             totalAmount += currentMonthlyContribution;
             totalContributions += currentMonthlyContribution;
@@ -53,10 +65,8 @@ document.getElementById('investmentForm').addEventListener('submit', function(e)
     document.getElementById('totalEarnings').textContent = 
         `$${totalEarnings.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
 
-    // Show results
+    // Show results and update chart
     document.getElementById('result').style.display = 'block';
-
-    // Update chart
     updateChart(labels, totalValues, contributionValues, earningsValues);
 });
 
